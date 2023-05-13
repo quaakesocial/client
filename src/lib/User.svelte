@@ -1,5 +1,5 @@
 <script lang="ts">
-  import axios from 'axios';
+  /* import axios from 'axios';
   import dayjs from 'dayjs';
   import relativeTime from 'dayjs/plugin/relativeTime';
   import Post from '$lib/Post.svelte';
@@ -34,14 +34,26 @@
   if(typeof window != 'undefined') {
     loadUser(name);
     console.log(posts)
-  }
+  } */
+  import Post from '$lib/Post.svelte'
+
+  export let user;
 </script>
 
-<div class="bg-primary-500 w-[50em] p-4 rounded">
+<!-- <div class="bg-primary-500 w-[50em] p-4 rounded">
   <h1 class="text-3xl font-semibold font-sans">@{name}</h1>
   <h2>Joined {ago} ago</h2>
 </div>
 
 {#each posts as post}
   <Post id={post} />
+{/each} -->
+
+<div class="bg-primary-500 w-[50em] p-4 rounded">
+  <h1 class="text-3xl font-semibold font-sans">@{user.username}</h1>
+  <h2>Joined {user.ago}</h2>
+</div>
+
+{#each user.posts as post}
+  <Post post={post} />
 {/each}

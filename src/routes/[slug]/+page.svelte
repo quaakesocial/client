@@ -9,10 +9,10 @@
 
 {#if data.type == 'post'}
   <div class="mt-6 flex justify-center">
-    <Post id={data.id} />
+    <Post post={{ ...data.post }} />
   </div>
 {:else if data.type == 'user'}
   <div class="mt-6 flex items-center flex-col gap-5">
-    <User name={data.username} />
+    <User user={{ ...data.user, ago: data.ago, posts: data.posts }} />
   </div>
 {/if}
