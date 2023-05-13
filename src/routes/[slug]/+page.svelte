@@ -12,7 +12,7 @@
     <Post id={data.id} />
   </div>
 {:else if data.type == 'user'}
-  <div class="mt-6 flex justify-center flex-col">
+  <div class="mt-6 flex items-center flex-col gap-5">
     <User name={data.username} />
   </div>
 {/if}

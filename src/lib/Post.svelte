@@ -23,16 +23,16 @@
   }
 </script>
 
-<div class="bg-[#15151A] w-[26em] rounded p-10">
+<div class="bg-[#15151A] w-[26em] rounded-lg p-10">
   <div class="w-full h-12 border-b-[#3a3a49] border-b-[1px]">
-    <p class="font-semibold">@{author || 'user'}</p>
+    <a class="font-semibold !text-white !no-underline" href={`/@${author}`}>@{author || 'user'}</a>
   </div>
   <br>
   <div class="font-apercu"> 
-    {content || 'loading...'}
+    {content || 'content'}
   </div>
   <br>
-  <div class="text-[#3a3a49]">
+  <a class="!text-[#3a3a49] !no-underline" href={`/$${id}`}>
     {id}
-  </div>
+  </a>
 </div>
