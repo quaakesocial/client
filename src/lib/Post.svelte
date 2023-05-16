@@ -11,7 +11,7 @@
     <a class="font-semibold !text-white !no-underline" href={`/@${post.by}`}>@{post.by}</a>
   </div>
   <br>
-  <div class="font-apercu"> 
+  <div class="font-roobert"> 
     {post.content}
   </div>
   <br>

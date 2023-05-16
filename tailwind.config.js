@@ -17,7 +17,7 @@ export default {
       },
       fontFamily: { 
         sans: ['Space Grotesk', ...defaultTheme.fontFamily.mono],
-        apercu: ['apercu', ...defaultTheme.fontFamily.sans]
+        roobert: ['Roobert', ...defaultTheme.fontFamily.sans]
       }
     },
   },

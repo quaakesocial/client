@@ -17,31 +17,21 @@
 }
 
 @font-face {
-  font-family: 'apercu';
-  src: url('/apercu-medium.woff2')
-    format('woff2');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
+  font-family: 'Roobert';
+  font-weight: 400;
+  src: url('/Roobert-Regular.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'apercu';
-  src: url('/apercu-bold.woff2')
-    format('woff2');
+  font-family: 'Roobert';
   font-weight: 600;
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
+  src: url('/Roobert-SemiBold.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'apercu';
-  src: url('/apercu-black.woff2')
-    format('woff2');
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
+  font-family: 'Roobert';
+  font-weight: 700;
+  src: url('/Roobert-Bold.woff2') format('woff2');
 }
 
 body {
@@ -53,7 +43,7 @@ a:not(nav a, button, .btn) {
 }
 
 button, .btn {
-  @apply bg-primary-400 px-3 py-2 rounded-md border-slate-800 border-2 transition duration-300 font-normal hover:bg-primary-500;
+  @apply bg-primary-400 px-3 py-2 rounded-md border-slate-800 border-2 transition duration-300 hover:bg-primary-500;
 }
 
 input, textarea {
@@ -61,7 +51,7 @@ input, textarea {
 }
 
 h1, h2, h3, h4, h5, h6, button, .btn, input, textarea {
-  @apply font-apercu;
+  @apply font-roobert;
 }
 
 .btn-secondary {
