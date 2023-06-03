@@ -5,10 +5,11 @@
   import Nav from '$lib/Nav.svelte';
   import NavLink from '$lib/NavLink.svelte';
 
+  import type { LayoutData } from './$types';
+
+  export let data: LayoutData;
+
   let Cookie: any;
-  let loggedIn: boolean;
-  let token: string;
-  let username: string = '';
 
   Cookie = {
     set: (name: string, value: string, expiresIn: number): void => {
@@ -56,28 +57,6 @@
           location.href = `/$${data.id}`;
         });
   }
-
-  if(typeof window != 'undefined') {
-    loggedIn = !!Cookie.get('token');
-
-    if(loggedIn) {
-      token = Cookie.get('token');
-      axios.get('/api')
-        .then(async (res) => {
-          const apiUrl = res.data;
-
-          try {
-            const { data: user } = await axios.get(`${apiUrl}/whoami`, { headers: { Authorization: token } });
-            console.log(user);
-            console.info(`${user.username} (${user.id})`);
-            username = user.username;
-          } catch(err) {
-            Cookie.delete('token');
-            location.reload();
-          }
-        });
-    }
-  }
 </script>
 
 <svelte:head>
@@ -90,16 +69,16 @@
     <NavLink href="/">home</NavLink>
     <NavLink href="/explore">explore</NavLink>
     <NavLink href="/about">about</NavLink>
-    {#if loggedIn}
+    {#if data.loggedIn}
       <!-- todo: make positioned to left -->
-      <NavLink href={`/@${username}`}>
-        <span id="username">{username}</span>
+      <NavLink href={`/@${data.user.username}`}>
+        {data.user.username}
       </NavLink>
     {/if}
   </div>
 </Nav>
 
-{#if loggedIn}
+{#if data.loggedIn}
   <button class="bg-primary w-16 h-16 fixed bottom-4 right-4 rounded-[50%] flex items-center justify-center text-4xl font-thin font-sans">
     +
   </button>
