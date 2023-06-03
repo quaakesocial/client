@@ -92,7 +92,7 @@
     <NavLink href="/about">about</NavLink>
     {#if loggedIn}
       <!-- todo: make positioned to left -->
-      <NavLink>
+      <NavLink href={`/@${username}`}>
         <span id="username">{username}</span>
       </NavLink>
     {/if}
