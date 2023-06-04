@@ -7,19 +7,20 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 export async function load({ params, fetch }) {
   const res = await fetch('/api');
   const api = await res.text();
+  dayjs.extend(relativeTime);
   if(params.slug.startsWith('$')) {
     const id = params.slug.split('$')[1];
     const res = await axios.get(`${api}/p/${id}`);
     const post = res.data;
     return {
       type: 'post',
-      post
+      post,
+      ago: dayjs(post.createDate).fromNow()
     }
   } else if(params.slug.startsWith('@')) {
     const name = params.slug.split('@')[1];
     const res = await axios.get(`${api}/u/${name}`);
     const user = res.data;
-    dayjs.extend(relativeTime);
     const ago = dayjs(user.joinDate).fromNow();
     const keys = Object.keys(user.posts);
     let parsedPosts: {}[] = [];

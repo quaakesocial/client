@@ -9,7 +9,7 @@
 
 {#if data.type == 'post'}
   <div class="mt-6 flex justify-center">
-    <Post post={{ ...data.post }} />
+    <Post post={{ ...data.post, ago: data.ago }} />
   </div>
 {:else if data.type == 'user'}
   <div class="mt-6 flex items-center flex-col gap-5">

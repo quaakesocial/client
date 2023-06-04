@@ -5,7 +5,8 @@
     by: string,
     content: string,
     id: string,
-    loves: string[]
+    loves: string[],
+    ago: string
   };
 
   let api: string;
@@ -54,7 +55,7 @@
         Authorization: token
       } });
     }
-    post = res.data;
+    post.loves = res.data.loves;
   }
 
   if(typeof window != 'undefined') {
@@ -71,7 +72,7 @@
   }
 </script>
 
-<div class="bg-[#15151A] w-[26em] rounded-lg p-10">
+<div class="bg-[#15151A] w-[28em] rounded-lg p-10">
   <div class="w-full h-12 border-b-[#3a3a49] border-b-[1px]">
     <a class="font-semibold !text-white !no-underline" href={`/@${post.by}`}>@{post.by}</a>
   </div>
@@ -80,6 +81,7 @@
     {post.content}
   </div>
   <br>
+  <a class="!text-[#3a3a49] !no-underline" href={`/$${post.id}`}>{post.ago} - {post.id}</a>
   <button class="flex items-center gap-2 bg-inherit outline-inherit border-none p-0 hover:bg-inherit" title={`loved by ${post.loves.join(', ')}`} on:click={async () => { if(loggedIn) { await lovePost() } } }>
   {#if post.loves.includes(id)}
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.6" class="w-6 h-6 fill-primary-500 stroke-primary-500">
@@ -92,5 +94,4 @@
   {/if}
   {post.loves.length}
   </button>
-  <a class="!text-[#3a3a49] !no-underline" href={`/$${post.id}`}>{post.id}</a>
 </div>

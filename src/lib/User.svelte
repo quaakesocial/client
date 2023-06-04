@@ -1,4 +1,9 @@
 <script lang="ts">
+  import dayjs from 'dayjs';
+  import relativeTime from 'dayjs/plugin/relativeTime';
+
+  dayjs.extend(relativeTime);
+
   /* import axios from 'axios';
   import dayjs from 'dayjs';
   import relativeTime from 'dayjs/plugin/relativeTime';
@@ -55,5 +60,5 @@
 </div>
 
 {#each user.posts as post}
-  <Post post={post} />
+  <Post post={{...post, ago: dayjs(post.createDate).fromNow()}} />
 {/each}
