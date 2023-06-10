@@ -1,15 +1,16 @@
 <script lang="ts" type="module">
-  import axios from 'axios';
   import '../app.css';
 
   import Nav from '$lib/Nav.svelte';
   import NavLink from '$lib/NavLink.svelte';
+  import NewPost from '$lib/NewPost.svelte';
 
   import type { LayoutData } from './$types';
 
   export let data: LayoutData;
 
   let Cookie: any;
+  let isOverlayOpen: boolean = false;
 
   Cookie = {
     set: (name: string, value: string, expiresIn: number): void => {
@@ -40,23 +41,6 @@
       return null;
     }
   };
-
-  function post() {
-    const token: string | null = Cookie.get('token');
-    axios.get('/api')
-        .then(async (res) => {
-          const apiUrl = res.data;
-
-          const { data } = await axios.post(`${apiUrl}/createPost`, {
-            content: document.getElementById('content')?.value
-          }, {
-            headers: {
-              Authorization: token
-            }
-          })
-          location.href = `/$${data.id}`;
-        });
-  }
 </script>
 
 <svelte:head>
@@ -79,9 +63,21 @@
 </Nav>
 
 {#if data.loggedIn}
-  <button class="bg-primary w-16 h-16 fixed bottom-4 right-4 rounded-[50%] flex items-center justify-center text-4xl font-thin font-sans">
+  <button
+    on:click={() => isOverlayOpen = true}
+    class="bg-primary w-16 h-16 fixed bottom-4 right-4 rounded-[50%] flex items-center justify-center text-4xl font-thin font-sans"
+  >
     +
   </button>
+
+  {#if isOverlayOpen}
+    <div on:click={() => isOverlayOpen = false} class="w-screen h-screen fixed top-0 left-0 flex justify-center items-center bg-black opacity-90 z-[9999999]">
+      <div on:click|stopPropagation class="bg-white/5 px-6 py-4 rounded-md opacity-1">
+        <a on:click={() => isOverlayOpen = false} class="float-right text-3xl !text-white !no-underline">x</a>
+        <NewPost />
+      </div>
+    </div>
+  {/if}
 {/if}
 
 <slot />
