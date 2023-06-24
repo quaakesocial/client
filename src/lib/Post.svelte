@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { fade } from 'svelte/transition';
+
   import axios from 'axios';
 
   export let post: {
@@ -84,7 +86,7 @@
   <a class="!text-[#3a3a49] !no-underline" href={`/$${post.id}`}>{post.ago} - {post.id}</a>
   <button class="flex items-center gap-2 bg-inherit outline-inherit border-none p-0 hover:bg-inherit" title={`loved by ${post.loves.join(', ')}`} on:click={async () => { if(loggedIn) { await lovePost() } } }>
   {#if post.loves.includes(id)}
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.6" class="w-6 h-6 fill-primary-500 stroke-primary-500">
+    <svg in:fade={{ duration: 200 }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.6" class="w-6 h-6 fill-primary-500 stroke-primary-500">
       <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
     </svg>
   {:else}
@@ -92,6 +94,6 @@
       <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
     </svg>
   {/if}
-  {post.loves.length}
+  <span transition:fade>{post.loves.length}</span>
   </button>
 </div>
