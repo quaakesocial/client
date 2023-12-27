@@ -42,7 +42,7 @@
   } */
   import Post from '$lib/Post.svelte'
 
-  export let user;
+  export let user: any;
 </script>
 
 <!-- <div class="bg-primary-500 w-[50em] p-4 rounded">

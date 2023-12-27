@@ -42,6 +42,10 @@ a:not(nav a, button, .btn) {
   @apply underline transition duration-300 text-primary-300 cursor-pointer hover:text-primary-100;
 }
 
+#navlink {
+  @apply hover:bg-zinc-900 rounded-[0.30rem] py-1 px-3 transition duration-300
+}
+
 button, .btn {
   @apply bg-primary-400 px-3 py-2 rounded-md border-slate-800 border-2 transition duration-300 hover:bg-primary-500;
 }

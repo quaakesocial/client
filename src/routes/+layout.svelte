@@ -4,6 +4,7 @@
   import Nav from '$lib/Nav.svelte';
   import NavLink from '$lib/NavLink.svelte';
   import NewPost from '$lib/NewPost.svelte';
+  import { fade } from 'svelte/transition';
 
   import type { LayoutData } from './$types';
 
@@ -71,7 +72,7 @@
   </button>
 
   {#if isOverlayOpen}
-    <div on:click={() => isOverlayOpen = false} class="w-screen h-screen fixed top-0 left-0 flex justify-center items-center bg-black opacity-90 z-[9999999]">
+    <div transition:fade={{ delay: 250, duration: 300}} on:click={() => isOverlayOpen = false} class="w-screen h-screen fixed top-0 left-0 flex justify-center items-center bg-black opacity-90 z-[9999999]">
       <div on:click|stopPropagation class="bg-white/5 px-6 py-4 rounded-md opacity-1">
         <a on:click={() => isOverlayOpen = false} class="float-right text-3xl !text-white !no-underline">x</a>
         <NewPost />
