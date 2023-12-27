@@ -7,6 +7,7 @@
   import { fade } from 'svelte/transition';
 
   import type { LayoutData } from './$types';
+    import { parse } from 'postcss';
 
   export let data: LayoutData;
 
@@ -55,7 +56,6 @@
     <NavLink href="/explore">explore</NavLink>
     <NavLink href="/about">about</NavLink>
     {#if data.loggedIn}
-      <!-- todo: make positioned to left -->
       <NavLink href={`/@${data.user.username}`}>
         {data.user.username}
       </NavLink>

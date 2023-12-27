@@ -79,7 +79,7 @@
     <a class="font-semibold !text-white !no-underline" href={`/@${post.by}`}>@{post.by}</a>
   </div>
   <br>
-  <div class="font-roobert"> 
+  <div class="font-regular"> 
     {post.content}
   </div>
   <br>
@@ -95,5 +95,4 @@
     </svg>
   {/if}
   <span transition:fade>{post.loves.length}</span>
-  </button>
 </div>

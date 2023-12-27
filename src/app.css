@@ -7,6 +7,10 @@
   src: url('/SpaceGrotesk.woff2');
 }
 
+* {
+  font-family: 'Space Grotesk', monospace, system-ui;
+}
+
 body {
   @apply bg-black text-white text-[1.4rem] selection:bg-primary-400/30;
 }
@@ -29,4 +33,11 @@ input, textarea {
 
 .btn-secondary {
   @apply bg-slate-200 text-gray-900 hover:bg-gray-300;
+}
+
+img.emoji {
+  height: 1em;
+  width: 1em;
+  margin: 0 .05em 0 .1em;
+  vertical-align: -0.1em;
 }
