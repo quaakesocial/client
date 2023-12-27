@@ -7,33 +7,6 @@
   src: url('/SpaceGrotesk.woff2');
 }
 
-@font-face {
-  font-family: 'apercu';
-  src: url('/apercu-regular.woff2')
-    format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Roobert';
-  font-weight: 400;
-  src: url('/Roobert-Regular.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Roobert';
-  font-weight: 600;
-  src: url('/Roobert-SemiBold.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Roobert';
-  font-weight: 700;
-  src: url('/Roobert-Bold.woff2') format('woff2');
-}
-
 body {
   @apply bg-black text-white text-[1.4rem] selection:bg-primary-400/30;
 }
@@ -52,10 +25,6 @@ button, .btn {
 
 input, textarea {
   @apply bg-white/5 px-4 py-1 rounded-md placeholder:text-white/30 focus:outline-none resize-none;
-}
-
-h1, h2, h3, h4, h5, h6, button, .btn, input, textarea {
-  @apply font-roobert;
 }
 
 .btn-secondary {
