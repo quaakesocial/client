@@ -55,8 +55,8 @@
 {/each} -->
 
 <div class="bg-primary-500 w-[50em] p-4 rounded">
-  <h1 class="text-3xl font-semibold font-sans">@{user.username}</h1>
-  <h2>Joined {user.ago}</h2>
+  <h2>@{user.username}</h2>
+  <h5>Joined {user.ago}</h5>
 </div>
 
 {#each user.posts as post}

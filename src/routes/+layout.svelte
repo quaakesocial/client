@@ -7,7 +7,6 @@
   import { fade } from 'svelte/transition';
 
   import type { LayoutData } from './$types';
-    import { parse } from 'postcss';
 
   export let data: LayoutData;
 
@@ -50,7 +49,7 @@
 </svelte:head>
 
 <Nav>
-  <NavLink href="/" title={true}>quake</NavLink>
+  <NavLink href="/" title={true}>quaake</NavLink>
   <div class="space-x-6 mt-1">
     <NavLink href="/">home</NavLink>
     <NavLink href="/explore">explore</NavLink>
@@ -81,4 +80,4 @@
   {/if}
 {/if}
 
-<slot />
+<slot/>
