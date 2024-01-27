@@ -75,7 +75,7 @@
   }
 </script>
 
-<div class="bg-[#15151A] w-[28em] rounded-lg p-10">
+<div class="bg-[#15151A] w-[30em] rounded-lg p-10">
   <div class="w-full h-12 border-b-[#3a3a49] border-b-[1px]">
     <a class="font-semibold !text-white !no-underline" href={`/@${post.by}`}>@{post.by}</a>
   </div>
